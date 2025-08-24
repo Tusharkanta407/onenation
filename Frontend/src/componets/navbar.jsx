@@ -32,14 +32,19 @@ const Navbar = () => {
 
         {/* Links for Large Screens */}
         <div className="hidden sm:flex gap-6">
-          {['HOME', 'PROCESS', 'SERVICES', 'ABOUT US', 'CONTACT US'].map((item) => (
+          {[
+            { name: 'HOME', href: '#home' },
+            { name: 'ABOUT', href: '#about-us' },
+            { name: 'SERVICES', href: '#services' },
+            { name: 'CONTACT', href: '#contact' }
+          ].map((item) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+              key={item.name}
+              href={item.href}
               whileHover={{ color: '#2DD4BF', y: -2 }}
               className="text-white hover:text-purple-400 transition-colors"
             >
-              {item}
+              {item.name}
             </motion.a>
           ))}
         </div>
@@ -52,15 +57,20 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           className="sm:hidden mt-4 bg-black/90 rounded-lg p-4 space-y-4"
         >
-          {['HOME', 'PROCESS', 'SERVICES', 'ABOUT US', 'CONTACT US'].map((item) => (
+          {[
+            { name: 'HOME', href: '#home' },
+            { name: 'ABOUT', href: '#about-us' },
+            { name: 'SERVICES', href: '#services' },
+            { name: 'CONTACT', href: '#contact' }
+          ].map((item) => (
             <motion.a
-              key={item}
-              href={`#${item.toLowerCase().replace(' ', '-')}`}
+              key={item.name}
+              href={item.href}
               whileHover={{ color: '#2DD4BF', x: 5 }}
               className="block text-white hover:text-purple-400 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              {item}
+              {item.name}
             </motion.a>
           ))}
         </motion.div>
